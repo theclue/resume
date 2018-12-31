@@ -1,0 +1,116 @@
+%!TEX TS-program = xelatex
+\documentclass[]{gabrielebaldassarre-cv}
+
+% this small macro is to automatically round image corners
+\usepackage{tikz}
+\newsavebox{\picbox}
+\newcommand{\cutpic}[3]{
+  \savebox{\picbox}{\includegraphics[width=1\textwidth,natwidth=#2,natheight=#2]{#3}}
+  \tikz\node [draw, rounded corners=#1, line width=2pt,
+    color=white, minimum width=\wd\picbox,
+    minimum height=\ht\picbox, path picture={
+      \node at (path picture bounding box.center) {
+        \usebox{\picbox}};
+    }] {};}
+
+\begin{document}
+\header{gabriele}{baldassarre}
+       {data manager}
+
+% \write18{wget "https://avatars1.githubusercontent.com/u/1724406?s=460&v=4" --output-document="img/gabriele.cv.jpg"}
+
+% In the aside, each new line forces a line break
+\begin{aside}
+ \cutpic{1.8cm}{430}{img/gabriele.cv.jpg}	
+  \section{contacts}
+    via Rubens 3
+    20148 Milan
+    Italy
+    ~
+    \textbf{+39.329.3835787}
+    ~
+    \href{mailto:gabriele@gabrielebaldassarre.com}{\textbf{gabriele@}
+    \small{gabrielebaldassarre.com}}
+  \section{languages}
+    italian native
+    english fluent
+  \section{key skills}
+   \textbf{data science}
+   machine learning
+   \textbf{digital marketing}
+   \textbf{business intelligence}
+   \textbf{google analytics 360}
+   \textbf{tableau}, big data
+   \textbf{CRM}, game design
+   docker, kubernetes
+ \section{programming}
+     {\color{red} $\varheartsuit$} \textbf{R}\includegraphics[scale=0.40]{img/5stars.png}
+    \textbf{SQL}\includegraphics[scale=0.40]{img/5stars.png}
+    \textbf{Java}\includegraphics[scale=0.40]{img/3stars.png}
+    \textbf{C}\includegraphics[scale=0.40]{img/4stars.png}
+    \textbf{bash}\includegraphics[scale=0.40]{img/3stars.png}
+ \section{software proficiencies}
+    {\color{red} $\varheartsuit$} \textbf{Google}\includegraphics[scale=0.40]{img/5stars.png}
+    \textbf{Adobe}\includegraphics[scale=0.40]{img/4stars.png}
+    \textbf{GNU/Unix}\includegraphics[scale=0.40]{img/5stars.png}
+    \textbf{Mac}\includegraphics[scale=0.40]{img/5stars.png}
+    \textbf{Windows}\includegraphics[scale=0.40]{img/3stars.png}
+\end{aside}
+
+\section{research interests}
+
+social networks analysis, \textbf{data mining}, \textbf{omnichannel marketing}, visual analytics, cloudbusiness intelligence, \textbf{gamification}, continuous integration, DMP, \textbf{crm}.
+
+\section{education}
+
+\begin{entrylist}
+  \entry
+    {2008/03}
+    {B.Sc. 104/110}
+    {Università degli Studi del Sannio}
+    {Computer Engineering}
+ \end{entrylist}
+
+\section{experience}
+
+\begin{entrylist}
+  \entry
+    {2014/12}
+    {\href{https://mrm-mccann.com/locations/it/en/milan.html}{MRM//McCann}}
+    {Head of Analytics \& CRM}
+    {\emph{Managing both the Data and CRM Teams, involved in projects ranging fromcustomer profiling to database marketing stratergies, visual analytics and predictive modeling in a cloud-native environment.}\\
+
+    \textbf{Main Clients: MasterCard} (CRM, Data Strategy), \textbf{OPEL/PSA} (Performance Models, Web Analytics), \textbf{Carrefour} (CRM), \textbf{Eli Lilly} (Social Network Analysis), \textbf{Whirlpool} (Visual Analytics).}
+  \entry
+    {2014/03}
+    {\href{http://www.sdggroup.com/it}{SDG Group}}
+    {Senior Data Analyst}
+    {\emph{Functional/technical design and implementation of Big Data solutions for customer profiling, digital marketing, visual analytics real-time business intelligence using \textbf{IBM BigInsights}, \textbf{R} and \textbf{Tableau}.}}
+  \entry
+    {2011/09}
+    {\href{http://www.paginegialle.it}{Seat Paginegialle}}
+    {Data Scientist}
+    {\emph{Involved in advanced web analytics tasks on \textbf{Adobe Marketing Cloud} and \textbf{Google Analytics} and in customer profiling models using search engine and SEO data.}}
+  \entry
+    {2008/11}
+    {\href{https://www.reply.com/it/topics/big-data-and-analytics/homepage}{Target Reply}}
+    {Business Intelligence Consultant}
+    {\emph{Data modeling, profiling and development for ETL/DWH setup using \textbf{SAS} and \textbf{Oracle} products.}}
+\end{entrylist}
+
+\section{notable products \& applications}
+
+\begin{entrylist}
+  \entry
+    {2017}
+    {Drive (Through) Analytics}
+    {}
+    {Corporate-level analytics methodology aimed to to assist clients in implementing their own data strategy. It is made of interactive workshops, KPI design sessions, data sources modeling and visual reporting.}
+ \entry
+    {2016}
+    {Cosa dice la rete?}
+    {}
+    {Analytics stack used to perform advanced social listening analytics and reporting, media and communication planning, brand reputation projects \& influencer marketing.}
+\end{entrylist}
+
+\end{document}
