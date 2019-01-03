@@ -1,0 +1,36 @@
+dist: trusty
+sudo: false
+addons:
+  apt:
+    packages:
+    - wget
+    - imagemagick
+    - libxml2-dev
+    - libxslt1-dev
+    - ghostscript
+    - libgs-dev
+cache:
+  packages: true
+  directories:
+  - "$HOME/texlive"
+  - "$HOME/.texlive"
+before_install:
+- bash _scripts/install.texlive.sh
+script:
+- bash _scripts/build.sh
+before_deploy:
+- git config --local user.name "Gabriele Baldassarre"
+- git config --local user.email "gabriele@gabrielebaldassarre.com"
+- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+- git tag $TRAVIS_TAG
+deploy:
+  provider: releases
+  api_key:
+    secure: WzlFYF4UApqqtNejNQekRaSAa2iK2GUhnksftU9g5hWhIx6oc+KXyFLG5qfnyUqa9bpZcC1Sx7inX6f0w4QaZOmLMg0SYhSIY5T88V2Oif09RG4SXdmmd6HS2eHN/DBAvjYs5yW1KO/mEEoLm2bcrSXD9pqoujlSz1nJ++N2W/Rxeyp2J1EsFyoOgvPf/70R9noGZ3aIpmzdNaWbg82gOh27ydhe5AyysU+vhFZmqv10CQyWshs10uxjA9EU+7kl3xMPhh6VSnOLDV6FRV5vVWRldar6QZnf25nwhh/q1e+4z5Ap4300t37Cbq3xfiEb4cDY2zXLtQy9vB3LGbsvp4gnTrrQFZYpv0wjRPj/cHlDYWUbeYusU7pxbsZbZmzbAYhYtURxQUdfoQh57jbjkAzRCk9xsHMdF1aXuj06feAgAe0IV9v9T+CYQG9qxZWVFZr/X0lFYhLng4QGOTTV3CtlLjB85VDiZJVqGrY2AugqEw0hrFAinYsleZkS4Lw/43p1Tg/YHxatgi6UurRQI1zWmEY8eLoN8jkKuPRz51J8N6puAL5EzpnKBj/wQsxvMZkNjpKUNfrDYY8PPSLPeGhVtf6db7ZYV9Z8T07C5fSgm4aXkqTjf8VHmjCO53eodKE/wH0ucCUem9ARSk3FK8B8gEJ70kXdtKNjFf/hXDI=
+  file: Baldassarre-Gabriele-CV.pdf
+  skip_cleanup: true
+  overwrite: true
+  on:
+    repo: theclue/resume
+    branch: master
+    tags: true
