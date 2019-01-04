@@ -18,11 +18,6 @@ before_install:
 - bash _scripts/install.texlive.sh
 script:
 - bash _scripts/build.sh
-before_deploy:
-- git config --local user.name "Gabriele Baldassarre"
-- git config --local user.email "gabriele@gabrielebaldassarre.com"
-- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-- git tag $TRAVIS_TAG
 deploy:
   provider: releases
   api_key:
