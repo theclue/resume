@@ -10,6 +10,7 @@ addons:
     - ghostscript
     - libgs-dev
     - texlive-full
+    - xzdec
 cache:
   packages: true
   directories:
