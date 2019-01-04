@@ -17,3 +17,5 @@ if [ -n "${TRAVIS+x}" ]; then
 fi
 
 wget "https://avatars1.githubusercontent.com/u/1724406?s=460&v=4" --output-document="img/gabriele.cv.jpg"
+
+xelatex --file-line-error --synctex=1 -jobname=Baldassarre-Gabriele-CV.pdf gabrielebaldassarre.tex
