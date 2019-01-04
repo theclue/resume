@@ -9,6 +9,7 @@ addons:
     - libxslt1-dev
     - ghostscript
     - libgs-dev
+    - texlive-full
 cache:
   packages: true
   directories:
