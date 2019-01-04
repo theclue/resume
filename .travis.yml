@@ -16,8 +16,6 @@ cache:
   directories:
   - "$HOME/texlive"
   - "$HOME/.texlive"
-before_install:
-- bash _scripts/install.texlive.sh
 script:
 - bash _scripts/build.sh
 deploy:
